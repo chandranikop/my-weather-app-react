@@ -14,7 +14,7 @@ const App = () => {
   const fetchWeather = async (cityName) => {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
       );
       if (!response.ok) throw new Error("Kota tidak ditemukan");
       const data = await response.json();
