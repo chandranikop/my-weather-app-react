@@ -2,7 +2,7 @@ import SearchBar from "./components/SearchBar";
 import CurrentWeather from "./components/CurrentWeather";
 import WeatherDetail from "./components/WeatherDetail";
 import Footer from "./components/Footer";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const App = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -11,24 +11,31 @@ const App = () => {
 
   const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
-  const fetchWeather = async (cityName) => {
-    try {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
-      );
-      if (!response.ok) throw new Error("Kota tidak ditemukan");
-      const data = await response.json();
-      setWeatherData(data);
-      setError(null);
-    } catch (err) {
-      setError(err.message);
-      setWeatherData(null);
-    }
-  };
+  const fetchWeather = useCallback(
+    async (cityName) => {
+      if (!cityName) return;
+
+      try {
+        const response = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`,
+        );
+
+        if (!response.ok) throw new Error("Kota tidak ditemukan");
+
+        const data = await response.json();
+        setWeatherData(data);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+        setWeatherData(null);
+      }
+    },
+    [API_KEY],
+  );
 
   useEffect(() => {
     fetchWeather(city);
-  }, []);
+  }, [fetchWeather, city]);
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-400 to-indigo-900 flex flex-col items-center justify-center p-4 font-sans text-white">
