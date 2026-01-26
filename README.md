@@ -1,16 +1,27 @@
-# React + Vite
+# 🌤️ React Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive weather dashboard featuring a beautiful **Glassmorphism UI**. This app provides real-time weather updates for cities worldwide.
 
-Currently, two official plugins are available:
+![App Screenshot](public/overview.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚡ Tech Stack
 
-## React Compiler
+Built with the latest web technologies for speed and modern styling:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** (Core Framework)
+- **Vite** (Build Tool)
+- **Tailwind CSS 4** (Styling)
+- **Lucide React** (Icons)
 
-## Expanding the ESLint configuration
+## ✨ Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Based on **OpenWeatherMap API**, this application allows users to:
+
+- **🔍 Search by City:** Instantly find weather conditions for any location.
+- **🌡️ Real-Time Metrics:** Displays temperature, humidity, wind speed, visibility, and air pressure.
+- **📅 Dynamic Date:** Auto-updates the current date based on the user's local time.
+- **🎨 Glassmorphism Design:** A sleek, semi-transparent interface with a modern gradient background.
+
+---
+
+Built with React
